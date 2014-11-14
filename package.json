@@ -2,13 +2,13 @@
   "name": "webSapSelectOption",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "dev/webSapSelectOption.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:tonioblack/timelinesap.git"
+    "url": "https://github.com/tonioblack/webSapSelectOption.git"
   },
   "author": "",
   "license": "ISC",

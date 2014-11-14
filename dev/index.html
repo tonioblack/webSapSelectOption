@@ -10,13 +10,46 @@
 <div>
 
 </div>
+<div id="div1">
+
+</div>
+<div id="div2">
+
+</div>
 <script src="vendors/jquery.js"></script>
 <script src="vendors/jquery-ui.js"></script>
-<script src="webSapSearchHelp.js"></script>
+<script src="vendors/jquery.mockjax.js"></script>
+<script src="mock.js"></script>
+<script src="webSapSelectOption.js"></script>
 <script type="text/javascript">
     $(function () {
-        $('div').webSapSearchHelp();
-    })
+        $('#div1').webSapSelectOption({
+            allowTypeHelp: true,
+            labelText: 'Network',
+            callback: function (dati) {
+                    alert("Data length:" + dati.length);
+            },
+            typeHelpFunction: function (request, response) {
+                var data = {
+                    ciao: 'test'
+                }
+                $.post('SearchHelp.json', data, function (result) {
+                    if (!result.errore) {
+                        response($.map(result, function (item) {
+                                    return {
+                                        label: item.aufnr + " - " + item.ktext,
+                                        value: item.aufnr
+                                    }
+                                })
+                        )
+                    } else {
+                        //todo
+                    }
+                }, 'json');
+
+            }
+        })
+    });
 </script>
 </body>
 </html>
